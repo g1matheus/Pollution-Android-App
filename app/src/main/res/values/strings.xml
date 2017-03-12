@@ -1,0 +1,55 @@
+<resources>
+    <string name="activity_comparador">Comparador</string>
+    <string name="activity_contMadrid">Contaminación en Madrid</string>
+
+    <string name="app_name">Contaminacion Madrid</string>
+    <string name="button_contMadrid">Contaminacion en Madrid</string>
+    <string name="button_datosHistoricos">Datos historicos</string>
+    <string name="button_comparador">Comparador</string>
+    <string name="button_ranking">Ranking</string>
+    <string name="button_normativa">Normativa</string>
+    <string name="button_contaminantes">Contaminantes</string>
+    <string name="button_buscarDatos">Buscar</string>
+
+    <string name="button_TestDate">Test Date</string>
+
+    <string name="contaminante1">SO2</string>
+    <string name="contaminante2">CO</string>
+    <string name="contaminante3">NO2</string>
+    <string name="contaminante4">O3</string>
+    <string name="contaminante5">TOL</string>
+    <string name="contaminante6">BEN</string>
+    <string name="contaminante7">PM2,5</string>
+    <string name="contaminante8">PM10</string>
+
+    <string name="estaciones_prompt">Elige una estacion</string>
+    <string-array name="estaciones_arrays">
+        <item>Pza. del Carmen</item>
+        <item>Pza. de España</item>
+        <item>Barrio del Pilar</item>
+        <item>Escuelas Aguirre</item>
+        <item>Cuatro Caminos</item>
+        <item>Av. Ramón y Cajal</item>
+        <item>Vallecas</item>
+        <item>Arturo Soria</item>
+        <item>Villaverde Alto</item>
+        <item>C/ Farolillo</item>
+        <item>Moratalaz</item>
+        <item>Casa de Campo</item>
+        <item>Barajas</item>
+        <item>Méndez Álvaro</item>
+        <item>Pº. Castellana</item>
+        <item>Retiro</item>
+        <item>Pza. Castilla</item>
+        <item>Ensanche Vallecas</item>
+        <item>Urb. Embajada (Barajas)</item>
+        <item>Pza. Fdez. Ladreda</item>
+        <item>Sanchinarro</item>
+        <item>El Pardo</item>
+        <item>Parque Juan Carlos I</item>
+        <item>Tres Olivos</item>
+    </string-array>
+
+    <string name="horas_prompt">Elige una hora</string>
+    <string name="dias_prompt">Elige un día</string>
+</resources>

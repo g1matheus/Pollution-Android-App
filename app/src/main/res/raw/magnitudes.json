@@ -1,0 +1,19 @@
+
+{
+"01": {"nombre": "Dióxido de Azufre", "abreviatura": "SO2", "unidad": "µg/m3"},
+"06": {"nombre": "Monóxido de Carbono", "abreviatura": "CO", "unidad": "mg/m3"},
+"07": {"nombre": "Monóxido de Nitrógeno", "abreviatura": "NO", "unidad": "µg/m3"},
+"08": {"nombre": "Dióxido de Nitrógeno", "abreviatura": "NO2", "unidad": "µg/m3"},
+"09": {"nombre": "Partículas < 2.5 µm", "abreviatura":"PM2.5", "unidad": "µg/m3"},
+"10": {"nombre": "Partículas < 10 µm",  "abreviatura":"PM10", "unidad": "µg/m3"},
+"12": {"nombre": "Óxidos de Nitrógeno",  "abreviatura":"NOx", "unidad": "µg/m3"},
+"14": {"nombre": "Ozono",  "abreviatura":"O3", "unidad": "µg/m3"},
+"20": {"nombre": "Tolueno",  "abreviatura":"TOL", "unidad": "µg/m3"},
+"30": {"nombre": "Benceno",  "abreviatura":"BEN", "unidad": "µg/m3"},
+"35": {"nombre": "Etilbenceno",  "abreviatura":"EBE", "unidad": "µg/m3"},
+"37": {"nombre": "Metaxileno",  "abreviatura":"MXY", "unidad": "µg/m3"},
+"38": {"nombre": "Paraxileno",  "abreviatura":"PXY", "unidad": "µg/m3"},
+"39": {"nombre": "Ortoxileno",  "abreviatura":"OXY", "unidad": "µg/m3"},
+"42": {"nombre": "Hidrocarburos totales (hexano)",  "abreviatura":"TCH", "unidad": "mg/m3"},
+"44": {"nombre": "Hidrocarburos no metánicos (hexano)",  "abreviatura":"NMHC", "unidad": "mg/m3"},
+}
