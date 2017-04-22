@@ -18,14 +18,22 @@
         </activity>
         <activity
             android:name=".ContMadridActivity"
-            android:label="@string/activity_contMadrid"/>/>
-        <activity android:name=".DatosHistoricosActivity" />
+            android:label="@string/activity_contMadrid" />
+        <activity
+            android:name=".AvisosContaminacion"
+            android:label="@string/activity_avisos_contaminacion" />/>
         <activity
             android:name=".ComparadorActivity"
             android:label="@string/activity_comparador"/>
-        <activity android:name=".RankingActivity" />
-        <activity android:name=".NormativaActivity" />
-        <activity android:name=".ContaminantesActivity"></activity>
+        <activity
+            android:name=".RankingActivity"
+            android:label="@string/activity_ranking"/>
+        <activity
+            android:name=".SportsActivity"
+            android:label="@string/activity_sports"/>
+        <activity
+            android:name=".EPOCActivity"
+            android:label="@string/activity_EPOC" />
     </application>
 
 </manifest>

@@ -22,7 +22,13 @@ import java.net.URLConnection;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.zip.ZipEntry;
@@ -67,6 +73,10 @@ public class ReadFiles {
 		public Boolean getDataValidator(int hour) {
 			return isValid.get(modulo((hour-1),24));
 		}
+
+		public ArrayList<String> getHours_list() { return hours_list; }
+
+		public ArrayList<Boolean> getValidators_list() { return isValid;}
 
 		public String getMagnitud() {
 			return magnitud_name;
@@ -204,6 +214,26 @@ public class ReadFiles {
 		return estacion_map.get(estacion);
 	}
 
+	public ArrayList<String> getValuesEstacionNO2(String estacion){
+		ArrayList<String> valuesEstacionNO2 = null;
+		for(int i=0; i<estacion_map.get(estacion).size();i++){
+			if(estacion_map.get(estacion).get(i).getMagnitud().equals("Dióxido de Nitrógeno")){
+				return estacion_map.get(estacion).get(i).getHours_list();
+			}
+		}
+		return valuesEstacionNO2;
+	}
+
+	public ArrayList<Boolean> getValidatorsEstacionNO2(String estacion){
+		ArrayList<Boolean> validatorsEstacionNO2 = null;
+		for(int i=0; i<estacion_map.get(estacion).size();i++){
+			if(estacion_map.get(estacion).get(i).getMagnitud().equals("Dióxido de Nitrógeno")){
+				return estacion_map.get(estacion).get(i).getValidators_list();
+			}
+		}
+		return validatorsEstacionNO2;
+	}
+
 
 	/**
 	 * This method read a row of the CSV file and returns a map with the name
@@ -293,6 +323,7 @@ public class ReadFiles {
 		if (previous_estacion != "") {
 			estacion_map.put(previous_estacion, magnitud_info_list);
 		}
+
 	}
 
 
@@ -307,6 +338,55 @@ public class ReadFiles {
 		// Reopen the file
 		this.file = new FileInputStream(this.nombre_file);
 		//this.buffer = new BufferedReader(new InputStreamReader(this.file, Charset.forName("UTF-8")));
+	}
+
+
+
+	public static <K extends Comparable,V extends Comparable> Map<K,V> sortByValues(Map<K,V> map){
+		List<Map.Entry<K,V>> entries = new LinkedList<Map.Entry<K,V>>(map.entrySet());
+
+		Collections.sort(entries, new Comparator<Map.Entry<K,V>>() {
+			@Override
+			public int compare(Map.Entry<K, V> o1, Map.Entry<K, V> o2) {
+				return o1.getValue().compareTo(o2.getValue());
+			}
+		});
+
+		//LinkedHashMap will keep the keys in the order they are inserted
+		//which is currently sorted on natural ordering
+		Map<K,V> sortedMap = new LinkedHashMap<K,V>();
+
+		for(Map.Entry<K,V> entry: entries){
+			sortedMap.put(entry.getKey(), entry.getValue());
+		}
+
+		return sortedMap;
+	}
+
+
+
+	public Map<String, Float> valoresDiaContaminante(String contaminante){
+		Iterator itr = estacion_map.keySet().iterator();
+		Map<String, Float> estacion_sum_contaminante = new HashMap<String, Float>();
+		while(itr.hasNext()) {
+			Object estacion = itr.next();
+			ArrayList<MagnitudInfo> list_magnitud = estacion_map.get(estacion);
+			Iterator itr_magnitud = list_magnitud.iterator();
+			while(itr_magnitud.hasNext()) {
+				Object magnitud = itr_magnitud.next();
+				float sum= 0;
+				if(((MagnitudInfo)magnitud).getMagnitud().equals(contaminante)){
+					for(int hour=0; hour<24; hour++){
+						if(((MagnitudInfo)magnitud).getDataValidator(hour)){
+							sum = sum + Float.valueOf(((MagnitudInfo)magnitud).getValueHour(hour));
+						}
+					}
+					estacion_sum_contaminante.put((String)estacion, sum);
+				}
+			}
+		}
+		estacion_sum_contaminante = sortByValues(estacion_sum_contaminante);
+		return estacion_sum_contaminante;
 	}
 
 

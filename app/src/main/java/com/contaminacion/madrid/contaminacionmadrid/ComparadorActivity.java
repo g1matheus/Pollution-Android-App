@@ -29,29 +29,14 @@ import api.main.ReadFiles;
 
 public class ComparadorActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
     private Spinner spinner1, spHoras;
-    private XYPlot plot;
-    private float max = 0;
-    private int pos=0;
-    private float minx = 0;
-    private float maxx = 0;
-
     private String dia;
     private String mes;
     private String ano;
     private TextView dia_seleccionado, fecha_seleccionada;
-
-    private float limit_SO2 = 350;
-    private float limit_CO = 10;
-    private float limit_NO2 = 200;
-    private float limit_O3 = 120;
-    private float limit_TOL = 10;
-    private float limit_BEN = 5;
-    private float limit_PM2_5 = 25;
-    private float limit_PM10 = 50;
+    private float[] limites = new float[] {350, 10, 180, 120, 10, 5, 25, 50};;
     private int showDateX = 0;
     private int horaMedidaX = 0;
     private int numMagnitudesAlmacenadas = 0;
-    private boolean isCorrectData;
 
 
     @Override
@@ -68,20 +53,15 @@ public class ComparadorActivity extends AppCompatActivity implements DatePickerD
 
 
         //Variables - Medidas contaminantes
-        final TextView dato_SO2 = new TextView(this);
-        final TextView dato_CO = new TextView(this);
-        final TextView dato_NO2 = new TextView(this);
-        final TextView dato_O3 = new TextView(this);
-        final TextView dato_TOL = new TextView(this);
-        final TextView dato_BEN = new TextView(this);
-        final TextView dato_PM2_5 = new TextView(this);
-        final TextView dato_PM10 = new TextView(this);
+        final TextView[] datos_cont = new TextView[8];
+        for(int i=0;i<8;i++){
+            datos_cont[i] = new TextView(this);
+        }
 
         int errorMessagesX = 0;
         int spinnerEstacionX = 0;
         int horaMedidaX = 0;
         Integer[] celda_cont = new Integer[] {0, 0, 0, 0, 0, 0, 0, 0};
-        isCorrectData = false;
         numMagnitudesAlmacenadas = 0;
 
 
@@ -148,35 +128,34 @@ public class ComparadorActivity extends AppCompatActivity implements DatePickerD
 
                         for(int i=0; i<list_magnitud.size();i++){
                             if(list_magnitud.get(i).getDataValidator(hora_seleccionada)){
-                                isCorrectData = true;
                             }
                             if(String.valueOf(Integer.parseInt(list_magnitud.get(i).getDay())).equals(dia)
                                     && list_magnitud.get(i).getDataValidator(hora_seleccionada)){
                                 numMagnitudesAlmacenadas++;
                                 switch (list_magnitud.get(i).getMagnitud()){
                                     case "Dióxido de Azufre":
-                                        dato_SO2.setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))));
+                                        datos_cont[0].setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))));
                                         break;
                                     case "Monóxido de Carbono":
-                                        dato_CO.setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))));
+                                        datos_cont[1].setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))));
                                         break;
                                     case "Dióxido de Nitrógeno":
-                                        dato_NO2.setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))));
+                                        datos_cont[2].setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))));
                                         break;
                                     case "Ozono":
-                                        dato_O3.setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))));
+                                        datos_cont[3].setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))));
                                         break;
                                     case "Tolueno":
-                                        dato_TOL.setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))));
+                                        datos_cont[4].setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))));
                                         break;
                                     case "Benceno":
-                                        dato_BEN.setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))));
+                                        datos_cont[5].setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))));
                                         break;
-                                    case "Partículas < 2.5 µm":
-                                        dato_PM2_5.setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))));
+                                    case "Partículas 2.5 µm":
+                                        datos_cont[6].setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))));
                                         break;
-                                    case "Partículas < 10 µm":
-                                        dato_PM10.setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))));
+                                    case "Partículas 10 µm":
+                                        datos_cont[7].setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))));
                                         break;
                                     default:
                                         //do nothing
@@ -196,7 +175,6 @@ public class ComparadorActivity extends AppCompatActivity implements DatePickerD
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            Log.d("myTag", "Pasa el bucle");
             Calendar calendar = new GregorianCalendar();
             int hora =calendar.get(Calendar.HOUR_OF_DAY);
             int minutos =calendar.get(Calendar.MINUTE);
@@ -206,165 +184,33 @@ public class ComparadorActivity extends AppCompatActivity implements DatePickerD
                 ((TextView) findViewById(errorMessagesX)).setText("No se han encontrado resultados para esta búsqueda.");
             }
             else{
-                //Medida 1
-                LinearLayout celda_SO2 = (LinearLayout)findViewById(celda_cont[0]);
-                Log.d("myTag", "Pasa el bucle"+dato_SO2.getText());
-                celda_SO2.removeAllViews();
-                celda_SO2.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                if(dato_SO2.getText()!=""){
-                    float value_SO2 = Float.parseFloat(dato_SO2.getText().toString());
-                    if (value_SO2 < limit_SO2/2){
-                        celda_SO2.setBackgroundColor(Color.parseColor("#7ec051"));
-                    }
-                    else if (value_SO2 < limit_SO2 && value_SO2 >= limit_SO2/2){
-                        celda_SO2.setBackgroundColor(Color.parseColor("#fcc963"));
-                    }
-                    else if (value_SO2 >= limit_SO2){
-                        celda_SO2.setBackgroundColor(Color.parseColor("#fb3c2e"));
-                    }
 
-                    celda_SO2.addView(dato_SO2);
+                //Pintamos por pantalla las medidas
+                for(int i=0;i<8;i++){
+                    LinearLayout celda = (LinearLayout)findViewById(celda_cont[i]);
+                    Log.d("myTag", "Pasa el bucle"+datos_cont[i].getText());
+                    celda.removeAllViews();
+                    celda.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                    if((datos_cont[i]!=null) && (datos_cont[i].getText()!="")){
+                        Log.d("myTag", "entroooo1");
+                        float value = Float.parseFloat(datos_cont[i].getText().toString());
+                        if (value < limites[i]/2){
+                            Log.d("myTag", "entroooo1");
+                            celda.setBackgroundColor(Color.parseColor("#7ec051"));
+                        }
+                        else if (value < limites[i] && value >= limites[i]/2){
+                            celda.setBackgroundColor(Color.parseColor("#fcc963"));
+                        }
+                        else if (value >= limites[i]){
+                            celda.setBackgroundColor(Color.parseColor("#fb3c2e"));
+                        }
+
+                        celda.addView(datos_cont[i]);
+                    }
                 }
 
-                //Medida 2
-                LinearLayout celda_CO = (LinearLayout)findViewById(celda_cont[1]);
-                Log.d("myTag", "Pasa el bucle"+dato_CO.getText());
-                celda_CO.removeAllViews();
-                celda_CO.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                if(dato_CO.getText()!=""){
-                    float value_CO = Float.parseFloat(dato_CO.getText().toString());
-                    if (value_CO < limit_CO/2){
-                        celda_CO.setBackgroundColor(Color.parseColor("#7ec051"));
-                    }
-                    else if (value_CO < limit_CO && value_CO >= limit_CO/2){
-                        celda_CO.setBackgroundColor(Color.parseColor("#fcc963"));
-                    }
-                    else if (value_CO >= limit_CO){
-                        celda_CO.setBackgroundColor(Color.parseColor("#fb3c2e"));
-                    }
 
-                    celda_CO.addView(dato_CO);
-                }
 
-                //Medida 3
-                LinearLayout celda_NO2 = (LinearLayout)findViewById(celda_cont[2]);
-                Log.d("myTag", "Pasa el bucle"+dato_NO2.getText());
-                celda_NO2.removeAllViews();
-                celda_NO2.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                if(dato_NO2.getText()!=""){
-                    float value_NO2 = Float.parseFloat(dato_NO2.getText().toString());
-                    if (value_NO2 < limit_NO2/2){
-                        celda_NO2.setBackgroundColor(Color.parseColor("#7ec051"));
-                    }
-                    else if (value_NO2 < limit_NO2 && value_NO2 >= limit_NO2/2){
-                        celda_NO2.setBackgroundColor(Color.parseColor("#fcc963"));
-                    }
-                    else if (value_NO2 >= limit_NO2){
-                        celda_NO2.setBackgroundColor(Color.parseColor("#fb3c2e"));
-                    }
-
-                    celda_NO2.addView(dato_NO2);
-                }
-
-                //Medida 4
-                LinearLayout celda_O3 = (LinearLayout)findViewById(celda_cont[3]);
-                Log.d("myTag", "Pasa el bucle"+dato_O3.getText());
-                celda_O3.removeAllViews();
-                celda_O3.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                if(dato_O3.getText()!=""){
-                    float value_O3 = Float.parseFloat(dato_O3.getText().toString());
-                    if (value_O3 < limit_O3/2){
-                        celda_O3.setBackgroundColor(Color.parseColor("#7ec051"));
-                    }
-                    else if (value_O3 < limit_O3 && value_O3 >= limit_O3/2){
-                        celda_O3.setBackgroundColor(Color.parseColor("#fcc963"));
-                    }
-                    else if (value_O3 >= limit_O3){
-                        celda_O3.setBackgroundColor(Color.parseColor("#fb3c2e"));
-                    }
-
-                    celda_O3.addView(dato_O3);
-                }
-
-                //Medida 5
-                LinearLayout celda_TOL = (LinearLayout)findViewById(celda_cont[4]);
-                Log.d("myTag", "Pasa el bucle"+dato_TOL.getText());
-                celda_TOL.removeAllViews();
-                celda_TOL.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                if(dato_TOL.getText()!=""){
-                    float value_TOL = Float.parseFloat(dato_TOL.getText().toString());
-                    if (value_TOL < limit_TOL/2){
-                        celda_TOL.setBackgroundColor(Color.parseColor("#7ec051"));
-                    }
-                    else if (value_TOL < limit_TOL && value_TOL >= limit_TOL/2){
-                        celda_TOL.setBackgroundColor(Color.parseColor("#fcc963"));
-                    }
-                    else if (value_TOL >= limit_TOL){
-                        celda_TOL.setBackgroundColor(Color.parseColor("#fb3c2e"));
-                    }
-
-                    celda_TOL.addView(dato_TOL);
-                }
-
-                //Medida 6
-                LinearLayout celda_BEN = (LinearLayout)findViewById(celda_cont[5]);
-                Log.d("myTag", "Pasa el bucle"+dato_BEN.getText());
-                celda_BEN.removeAllViews();
-                celda_BEN.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                if(dato_BEN.getText()!=""){
-                    float value_BEN = Float.parseFloat(dato_BEN.getText().toString());
-                    if (value_BEN < limit_BEN/2){
-                        celda_BEN.setBackgroundColor(Color.parseColor("#7ec051"));
-                    }
-                    else if (value_BEN < limit_BEN && value_BEN >= limit_BEN/2){
-                        celda_BEN.setBackgroundColor(Color.parseColor("#fcc963"));
-                    }
-                    else if (value_BEN >= limit_BEN){
-                        celda_BEN.setBackgroundColor(Color.parseColor("#fb3c2e"));
-                    }
-
-                    celda_BEN.addView(dato_BEN);
-                }
-
-                //Medida 7
-                LinearLayout celda_PM2_5 = (LinearLayout)findViewById(celda_cont[6]);
-                Log.d("myTag", "Pasa el bucle"+dato_PM2_5.getText());
-                celda_PM2_5.removeAllViews();
-                celda_PM2_5.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                if(dato_PM2_5.getText()!=""){
-                    float value_PM2_5 = Float.parseFloat(dato_PM2_5.getText().toString());
-                    if (value_PM2_5 < limit_PM2_5/2){
-                        celda_PM2_5.setBackgroundColor(Color.parseColor("#7ec051"));
-                    }
-                    else if (value_PM2_5 < limit_PM2_5 && value_PM2_5 >= limit_PM2_5/2){
-                        celda_PM2_5.setBackgroundColor(Color.parseColor("#fcc963"));
-                    }
-                    else if (value_PM2_5 >= limit_PM2_5){
-                        celda_PM2_5.setBackgroundColor(Color.parseColor("#fb3c2e"));
-                    }
-
-                    celda_PM2_5.addView(dato_PM2_5);
-                }
-
-                //Medida 8
-                LinearLayout celda_PM10 = (LinearLayout)findViewById(celda_cont[7]);
-                Log.d("myTag", "Pasa el bucle"+dato_PM10.getText());
-                celda_PM10.removeAllViews();
-                celda_PM10.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                if(dato_PM10.getText()!=""){
-                    float value_PM10 = Float.parseFloat(dato_PM10.getText().toString());
-                    if (value_PM10 < limit_PM10/2){
-                        celda_PM10.setBackgroundColor(Color.parseColor("#7ec051"));
-                    }
-                    else if (value_PM10 < limit_PM10 && value_PM10 >= limit_PM10/2){
-                        celda_PM10.setBackgroundColor(Color.parseColor("#fcc963"));
-                    }
-                    else if (value_PM10 >= limit_PM10){
-                        celda_PM10.setBackgroundColor(Color.parseColor("#fb3c2e"));
-                    }
-
-                    celda_PM10.addView(dato_PM10);
-                }
             }
 
         }

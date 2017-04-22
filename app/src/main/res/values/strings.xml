@@ -1,6 +1,10 @@
 <resources>
     <string name="activity_comparador">Comparador</string>
     <string name="activity_contMadrid">Contaminación en Madrid</string>
+    <string name="activity_ranking">Ranking del día</string>
+    <string name="activity_avisos_contaminacion">Avisos por contaminación</string>
+    <string name="activity_EPOC">EPOC</string>
+    <string name="activity_sports">Dónde hacer deporte</string>
 
     <string name="app_name">Contaminacion Madrid</string>
     <string name="button_contMadrid">Contaminacion en Madrid</string>
@@ -22,10 +26,31 @@
     <string name="contaminante7">PM2,5</string>
     <string name="contaminante8">PM10</string>
 
+    <string name="contaminantes_prompt">Elige un contaminante</string>
+    <string-array name="contaminantes_arrays">
+        <item>Dióxido de Azufre</item>
+        <item>Monóxido de Carbono</item>
+        <item>Dióxido de Nitrógeno</item>
+        <item>Ozono</item>
+        <item>Tolueno</item>
+        <item>Benceno</item>
+        <item>Partículas 2.5 µm</item>
+        <item>Partículas 10 µm</item>
+    </string-array>
+
+    <string name="grados_epoc_prompt">Selecciona el grado de EPOC</string>
+    <string-array name="grados_epoc_array">
+        <item>Grado 1</item>
+        <item>Grado 2</item>
+        <item>Grado 3</item>
+        <item>Grado 4</item>
+    </string-array>
+
+
     <string name="estaciones_prompt">Elige una estacion</string>
     <string-array name="estaciones_arrays">
-        <item>Pza. del Carmen</item>
-        <item>Pza. de España</item>
+        <item>Plaza del Carmen</item>
+        <item>Plaza de España</item>
         <item>Barrio del Pilar</item>
         <item>Escuelas Aguirre</item>
         <item>Cuatro Caminos</item>
@@ -36,12 +61,12 @@
         <item>C/ Farolillo</item>
         <item>Moratalaz</item>
         <item>Casa de Campo</item>
-        <item>Barajas</item>
+        <item>Barajas Pueblo</item>
         <item>Méndez Álvaro</item>
         <item>Pº. Castellana</item>
         <item>Retiro</item>
-        <item>Pza. Castilla</item>
-        <item>Ensanche Vallecas</item>
+        <item>Plaza de Castilla</item>
+        <item>Ensanche de Vallecas</item>
         <item>Urb. Embajada (Barajas)</item>
         <item>Pza. Fdez. Ladreda</item>
         <item>Sanchinarro</item>

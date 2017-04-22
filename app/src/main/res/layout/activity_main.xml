@@ -23,8 +23,11 @@
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:text="@string/button_contMadrid"
-                android:onClick="goContMadrid"
-                android:background="#F09" />
+                android:textColor="@color/ap_white"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:background="@drawable/border_menu1"
+                android:onClick="goContMadrid" />
 
             <Button
                 android:id="@+id/button1"
@@ -32,8 +35,11 @@
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:text="@string/button_comparador"
-                android:onClick="goComparador"
-                android:background="#F098"/>
+                android:textColor="@color/ap_white"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:background="@drawable/border_menu2"
+                android:onClick="goComparador" />
 
         </TableRow>
 
@@ -48,16 +54,24 @@
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
-                android:text="Button"
-                android:background="#FF8"/>
+                android:text="Ranking del día"
+                android:textColor="@color/ap_white"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:background="@drawable/border_menu3"
+                android:onClick="goRanking" />
 
             <Button
                 android:id="@+id/button6"
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
-                android:text="Button"
-                android:background="#F12"/>
+                android:text="Avisos por contaminación"
+                android:textColor="@color/ap_white"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:background="@drawable/border_menu4"
+                android:onClick="goAvisosContaminacion" />
 
         </TableRow>
 
@@ -69,50 +83,30 @@
             >
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/btnEPOC"
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
-                android:text="Button"
-                android:background="#F569" />
+                android:text="EPOC"
+                android:textColor="@color/ap_white"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:background="@drawable/border_menu5"
+                android:onClick="goEPOC" />
 
             <Button
-                android:id="@+id/button7"
+                android:id="@+id/btnSport"
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
-                android:text="Button"
-                android:background="#F094"/>
+                android:text="Salir a hacer\n deporte"
+                android:textColor="@color/ap_white"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:background="@drawable/border_menu6"
+                android:onClick="goSports" />
 
         </TableRow>
-
-
-        <TableRow
-            android:id="@+id/tableRow4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.3" >
-
-            <Button
-                android:id="@+id/button77"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:text="Button"
-                android:background="#FC9"
-                />
-
-            <Button
-                android:id="@+id/button75"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:text="Button"
-                android:background="#F09"
-                />
-
-        </TableRow>
-
 
     </TableLayout>
 </RelativeLayout>
