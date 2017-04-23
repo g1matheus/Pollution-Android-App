@@ -50,8 +50,9 @@ public class ReadFiles {
 		public String magnitud_name;
 		public String tecnica;
 		public String year, month, day;
+		public String unidad;
 
-		public void setMagnitudInfo(String magnitud_name, String tecnica, String year, String month, String day, ArrayList<String> hours_list, ArrayList<Boolean> isValid) {
+		public void setMagnitudInfo(String magnitud_name, String tecnica, String year, String month, String day, ArrayList<String> hours_list, ArrayList<Boolean> isValid, String unidad) {
 			this.magnitud_name = magnitud_name;
 			this.tecnica = tecnica;
 			this.year = year;
@@ -59,6 +60,7 @@ public class ReadFiles {
 			this.day = day;
 			this.hours_list = hours_list;
 			this.isValid = isValid;
+			this.unidad = unidad;
 		}
 
 		public int modulo( int m, int n ){
@@ -93,6 +95,8 @@ public class ReadFiles {
 		public String getDay() {
 			return day;
 		}
+
+		public String getUnidad(){ return unidad;}
 	}
 
 	protected String nombre_file;
@@ -277,8 +281,10 @@ public class ReadFiles {
 				MagnitudInfo magnitud_info = new MagnitudInfo();
 				JSONObject magnitud_object = getMagnitud(line.substring(8, 10), magnitudfile);
 				String nombre_magnitud = "";
+				String unidad = "";
 				if (magnitud_object != null) {
 					nombre_magnitud = magnitud_object.getString("nombre");
+					unidad = magnitud_object.getString("unidad");
 				}
 
 				tecnica = line.substring(10, 12);
@@ -313,7 +319,7 @@ public class ReadFiles {
 						dataValidator_list.add(false);
 					}
 				}
-				magnitud_info.setMagnitudInfo(nombre_magnitud, tecnica, year, month, day, hours_list, dataValidator_list);
+				magnitud_info.setMagnitudInfo(nombre_magnitud, tecnica, year, month, day, hours_list, dataValidator_list, unidad);
 				magnitud_info_list.add(magnitud_info);
 				//System.out.println("estacion: "+nombre_estacion+" magnitud: "+nombre_magnitud+" tecnica: "+tecnica+" horario: "+horario);
 			}

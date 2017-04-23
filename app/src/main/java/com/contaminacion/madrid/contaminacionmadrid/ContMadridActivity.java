@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import java.text.DateFormat;
@@ -34,6 +35,7 @@ public class ContMadridActivity extends AppCompatActivity implements DatePickerD
     private String ano;
     private TextView dia_seleccionado, fecha_seleccionada;
     private float[] limites = new float[] {350, 10, 180, 120, 10, 5, 25, 50};
+    private String[] names = new String[] {"SO2", "CO", "NO2", "O3", "TOL", "BEN", "PM 2,5", "PM 10"};
     private int showDateX = 0;
     private int horaMedidaX = 0;
     private int numMagnitudesAlmacenadas = 0;
@@ -43,7 +45,7 @@ public class ContMadridActivity extends AppCompatActivity implements DatePickerD
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cont_madrid);
+        setContentView(R.layout.activity_cont_madrid_old);
 
     }
 
@@ -54,14 +56,24 @@ public class ContMadridActivity extends AppCompatActivity implements DatePickerD
 
         //Variables - Medidas contaminantes
         final TextView[] datos_cont = new TextView[8];
+        final TextView[] names_cont = new TextView[8];
+        final TextView[] barra = new TextView[8];
+        final TextView[] porcentaje = new TextView[8];
         for(int i=0;i<8;i++){
             datos_cont[i] = new TextView(this);
+            names_cont[i] = new TextView(this);
+            barra[i] = new TextView(this);
+            porcentaje[i] = new TextView(this);
         }
 
         int errorMessagesX = 0;
         int spinnerEstacionX = 0;
         int horaMedidaX = 0;
+        Integer[] celda_name = new Integer[] {0, 0, 0, 0, 0, 0, 0, 0};
         Integer[] celda_cont = new Integer[] {0, 0, 0, 0, 0, 0, 0, 0};
+        Integer[] celda_porc_barra = new Integer[] {0, 0, 0, 0, 0, 0, 0, 0};
+        Integer[] celda_porc_num = new Integer[] {0, 0, 0, 0, 0, 0, 0, 0};
+        Integer[] celda_porc = new Integer[] {0, 0, 0, 0, 0, 0, 0, 0};
         numMagnitudesAlmacenadas = 0;
 
 
@@ -74,7 +86,13 @@ public class ContMadridActivity extends AppCompatActivity implements DatePickerD
             spinnerEstacionX = R.id.spinnerEstacion1;
             horaMedidaX = R.id.horaMedida1;
             showDateX = R.id.showDate1;
+            celda_name = new Integer[] {R.id.category1, R.id.category2, R.id.category3, R.id.category4, R.id.category5, R.id.category6, R.id.category7, R.id.category8};
             celda_cont = new Integer[] {R.id.buscador1_cont1, R.id.buscador1_cont2, R.id.buscador1_cont3, R.id.buscador1_cont4, R.id.buscador1_cont5, R.id.buscador1_cont6, R.id.buscador1_cont7, R.id.buscador1_cont8};
+            celda_porc = new Integer[] {R.id.buscador1_cont1_porcentaje, R.id.buscador1_cont2_porcentaje, R.id.buscador1_cont3_porcentaje, R.id.buscador1_cont4_porcentaje, R.id.buscador1_cont5_porcentaje, R.id.buscador1_cont6_porcentaje, R.id.buscador1_cont7_porcentaje, R.id.buscador1_cont8_porcentaje};
+            celda_porc_barra = new Integer[] {R.id.buscador1_cont1_barra, R.id.buscador1_cont2_barra, R.id.buscador1_cont3_barra, R.id.buscador1_cont4_barra, R.id.buscador1_cont5_barra, R.id.buscador1_cont6_barra, R.id.buscador1_cont7_barra, R.id.buscador1_cont8_barra};
+            celda_porc_num = new Integer[] {R.id.buscador1_cont1_porc, R.id.buscador1_cont2_porc, R.id.buscador1_cont3_porc, R.id.buscador1_cont4_porc, R.id.buscador1_cont5_porc, R.id.buscador1_cont6_porc, R.id.buscador1_cont7_porc, R.id.buscador1_cont8_porc};
+
+
         }
         //Actualizamos las variables para el buscardor 2
         else if (buscador.equals("measures2")){
@@ -135,28 +153,28 @@ public class ContMadridActivity extends AppCompatActivity implements DatePickerD
                                 numMagnitudesAlmacenadas++;
                                 switch (list_magnitud.get(i).getMagnitud()){
                                     case "Dióxido de Azufre":
-                                        datos_cont[0].setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))));
+                                        datos_cont[0].setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))) + " " + list_magnitud.get(i).getUnidad());
                                         break;
                                     case "Monóxido de Carbono":
-                                        datos_cont[1].setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))));
+                                        datos_cont[1].setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))) + " " + list_magnitud.get(i).getUnidad());
                                         break;
                                     case "Dióxido de Nitrógeno":
-                                        datos_cont[2].setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))));
+                                        datos_cont[2].setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))) + " " + list_magnitud.get(i).getUnidad());
                                         break;
                                     case "Ozono":
-                                        datos_cont[3].setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))));
+                                        datos_cont[3].setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))) + " " + list_magnitud.get(i).getUnidad());
                                         break;
                                     case "Tolueno":
-                                        datos_cont[4].setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))));
+                                        datos_cont[4].setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))) + " " + list_magnitud.get(i).getUnidad());
                                         break;
                                     case "Benceno":
-                                        datos_cont[5].setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))));
+                                        datos_cont[5].setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))) + " " + list_magnitud.get(i).getUnidad());
                                         break;
                                     case "Partículas 2.5 µm":
-                                        datos_cont[6].setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))));
+                                        datos_cont[6].setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))) + " " + list_magnitud.get(i).getUnidad());
                                         break;
                                     case "Partículas 10 µm":
-                                        datos_cont[7].setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))));
+                                        datos_cont[7].setText(String.valueOf(Float.parseFloat(list_magnitud.get(i).getValueHour(hora_seleccionada))) + " " + list_magnitud.get(i).getUnidad());
                                         break;
                                     default:
                                         //do nothing
@@ -188,27 +206,40 @@ public class ContMadridActivity extends AppCompatActivity implements DatePickerD
 
                 //Pintamos por pantalla las medidas
                 for(int i=0;i<8;i++){
+                    names_cont[i].setText(names[i]);
+                    LinearLayout celda_nombre = (LinearLayout)findViewById(celda_name[i]);
                     LinearLayout celda = (LinearLayout)findViewById(celda_cont[i]);
-                    Log.d("myTag", "Pasa el bucle"+datos_cont[i].getText());
+                    TextView celda_barra = (TextView)findViewById(celda_porc_barra[i]);
+                    TextView celda_numero = (TextView)findViewById(celda_porc_num[i]);
+                    celda_nombre.removeAllViews();
                     celda.removeAllViews();
-                    celda.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                    celda_barra.setBackgroundColor(Color.TRANSPARENT);
+                    celda_numero.setText("");
                     if((datos_cont[i]!=null) && (datos_cont[i].getText()!="")){
-                        Log.d("myTag", "entroooo1");
-                        float value = Float.parseFloat(datos_cont[i].getText().toString());
+                        float value = Float.parseFloat(datos_cont[i].getText().toString().split(" ")[0]);
                         if (value < limites[i]/2){
-                            Log.d("myTag", "entroooo1");
-                            celda.setBackgroundColor(Color.parseColor("#7ec051"));
+                            celda_barra.setBackgroundColor(Color.parseColor("#7ec051"));
                         }
                         else if (value < limites[i] && value >= limites[i]/2){
-                            celda.setBackgroundColor(Color.parseColor("#fcc963"));
+                            celda_barra.setBackgroundColor(Color.parseColor("#fcc963"));
                         }
                         else if (value >= limites[i]){
-                            celda.setBackgroundColor(Color.parseColor("#fb3c2e"));
+                            celda_barra.setBackgroundColor(Color.parseColor("#fb3c2e"));
                         }
+                        //cambia la longitud de la barra del porcentaje
+                        float porcentaje_value = value * 100 / limites[i];
+                        ViewGroup.LayoutParams params=celda_barra.getLayoutParams();
+                        float width = 7*porcentaje_value;
+                        params.width= (int)width;
+                        celda_barra.setLayoutParams(params);
+                        celda_numero.setText(String.format("%.2f", porcentaje_value)+"%");
 
                         celda.addView(datos_cont[i]);
                     }
+                    names_cont[i].setTextSize(19);
+                    celda_nombre.addView(names_cont[i]);
                 }
+
 
 
 
