@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:ap="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginBottom="11dp"
+        android:layout_marginTop="11dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center_vertical|center_horizontal">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -21,12 +22,16 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_gravity="center_vertical|center_horizontal">
         <Button
             android:id="@+id/search_park"
+            android:background="#00695C"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Buscar"
+            android:textStyle="bold"
+            android:textColor="@color/off_white"
             android:tag="showDate1"
             android:onClick="getParkSport"/>
     </LinearLayout>
@@ -35,6 +40,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="11dp"
+        android:layout_marginLeft="11dp"
         android:id="@+id/park">
         <TextView
             android:layout_width="match_parent"
@@ -47,6 +54,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:shrinkColumns="1"
+        android:layout_marginTop="11dp"
+        android:layout_marginLeft="11dp"
         android:id="@+id/table2">
 
         <TableRow
@@ -91,6 +100,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="11dp"
+        android:layout_marginLeft="11dp"
         android:id="@+id/mensaje">
         <TextView
             android:layout_width="match_parent"
@@ -102,7 +113,6 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:background="@drawable/juancarlosi"
         android:layout_height="0dp"
         android:layout_width="match_parent"
         android:layout_weight="2"
@@ -110,6 +120,10 @@
         android:layout_marginRight="50sp"
         android:layout_marginTop="70sp"
         android:layout_marginBottom="90sp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/img_park"/>
 
     </LinearLayout>
 

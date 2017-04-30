@@ -8,7 +8,7 @@
     android:padding="0dp"> <!-- to show what the parent is -->
     <LinearLayout
         android:orientation="vertical"
-        android:background="@drawable/madrid2"
+        android:background="#caeeff"
         android:layout_height="0dp"
         android:layout_width="match_parent"
         android:layout_weight="2" >
@@ -16,6 +16,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
             <Spinner
                 android:id="@+id/spinnerEstacion1"
@@ -27,9 +28,10 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:orientation="horizontal">
             <Button
+                android:background="#03A9F4"
                 android:id="@+id/picDate1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -40,6 +42,7 @@
                 android:layout_below="@+id/picDate1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp"
                 android:id="@+id/showDate1"
                 android:textSize="18dp"/>
             <Spinner
@@ -48,6 +51,7 @@
                 android:layout_height="wrap_content"
                 android:prompt="@string/horas_prompt" />
             <Button
+                android:background="#03A9F4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/button_buscarDatos"
@@ -63,17 +67,20 @@
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp">
 
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/contaminante1"
+                        android:textSize="17dp"
                         android:gravity="center"/>
 
                 </LinearLayout>
@@ -81,17 +88,18 @@
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_height="match_parent"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal">
 
                     <View
                         android:layout_height="match_parent"
-                        android:layout_width="1dp"
-                        android:background="#BDCAD2"/>
+                        android:layout_width="1dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/contaminante2"
+                        android:textSize="17dp"
                         android:gravity="center"/>
 
                 </LinearLayout>
@@ -100,17 +108,18 @@
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_height="match_parent"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal">
 
                     <View
                         android:layout_height="match_parent"
-                        android:layout_width="1dp"
-                        android:background="#BDCAD2"/>
+                        android:layout_width="1dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/contaminante3"
+                        android:textSize="17dp"
                         android:gravity="center"/>
 
                 </LinearLayout>
@@ -119,17 +128,18 @@
                     android:orientation="horizontal"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:weightSum="1">
+                    android:weightSum="1"
+                    android:gravity="center_horizontal">
 
                     <View
                         android:layout_height="match_parent"
-                        android:layout_width="1dp"
-                        android:background="#BDCAD2"/>
+                        android:layout_width="1dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/contaminante4"
+                        android:textSize="17dp"
                         android:gravity="center" />
 
                 </LinearLayout>
@@ -138,17 +148,18 @@
                     android:orientation="horizontal"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:weightSum="1">
+                    android:weightSum="1"
+                    android:gravity="center_horizontal">
 
                     <View
                         android:layout_height="match_parent"
-                        android:layout_width="1dp"
-                        android:background="#BDCAD2"/>
+                        android:layout_width="1dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/contaminante5"
+                        android:textSize="17dp"
                         android:gravity="center" />
 
                 </LinearLayout>
@@ -157,17 +168,18 @@
                     android:orientation="horizontal"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:weightSum="1">
+                    android:weightSum="1"
+                    android:gravity="center_horizontal">
 
                     <View
                         android:layout_height="match_parent"
-                        android:layout_width="1dp"
-                        android:background="#BDCAD2"/>
+                        android:layout_width="1dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/contaminante6"
+                        android:textSize="17dp"
                         android:gravity="center" />
 
                 </LinearLayout>
@@ -176,17 +188,18 @@
                     android:orientation="horizontal"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:weightSum="1">
+                    android:weightSum="1"
+                    android:gravity="center_horizontal">
 
                     <View
                         android:layout_height="match_parent"
-                        android:layout_width="1dp"
-                        android:background="#BDCAD2"/>
+                        android:layout_width="1dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/contaminante7"
+                        android:textSize="17dp"
                         android:gravity="center" />
 
                 </LinearLayout>
@@ -195,17 +208,18 @@
                     android:orientation="horizontal"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:weightSum="1">
+                    android:weightSum="1"
+                    android:gravity="center_horizontal">
 
                     <View
                         android:layout_height="match_parent"
-                        android:layout_width="1dp"
-                        android:background="#BDCAD2"/>
+                        android:layout_width="1dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/contaminante8"
+                        android:textSize="17dp"
                         android:gravity="center" />
 
                 </LinearLayout>
@@ -220,6 +234,7 @@
                     android:orientation="horizontal"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:gravity="center_horizontal"
                     android:id="@+id/buscador1_cont1">
 
                     <TextView
@@ -233,12 +248,12 @@
                     android:orientation="horizontal"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:gravity="center_horizontal"
                     android:id="@+id/buscador1_cont2">
 
                     <View
                         android:layout_height="match_parent"
-                        android:layout_width="1dp"
-                        android:background="#BDCAD2"/>
+                        android:layout_width="1dp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -252,12 +267,12 @@
                     android:orientation="horizontal"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:gravity="center_horizontal"
                     android:id="@+id/buscador1_cont3">
 
                     <View
                         android:layout_height="match_parent"
-                        android:layout_width="1dp"
-                        android:background="#BDCAD2"/>
+                        android:layout_width="1dp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -270,12 +285,12 @@
                     android:orientation="horizontal"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:gravity="center_horizontal"
                     android:id="@+id/buscador1_cont4">
 
                     <View
                         android:layout_height="match_parent"
-                        android:layout_width="1dp"
-                        android:background="#BDCAD2"/>
+                        android:layout_width="1dp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -288,12 +303,12 @@
                     android:orientation="horizontal"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:gravity="center_horizontal"
                     android:id="@+id/buscador1_cont5">
 
                     <View
                         android:layout_height="match_parent"
-                        android:layout_width="1dp"
-                        android:background="#BDCAD2"/>
+                        android:layout_width="1dp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -306,12 +321,12 @@
                     android:orientation="horizontal"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:gravity="center_horizontal"
                     android:id="@+id/buscador1_cont6">
 
                     <View
                         android:layout_height="match_parent"
-                        android:layout_width="1dp"
-                        android:background="#BDCAD2"/>
+                        android:layout_width="1dp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -324,12 +339,12 @@
                     android:orientation="horizontal"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:gravity="center_horizontal"
                     android:id="@+id/buscador1_cont7">
 
                     <View
                         android:layout_height="match_parent"
-                        android:layout_width="1dp"
-                        android:background="#BDCAD2"/>
+                        android:layout_width="1dp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -342,12 +357,12 @@
                     android:orientation="horizontal"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:gravity="center_horizontal"
                     android:id="@+id/buscador1_cont8">
 
                     <View
                         android:layout_height="match_parent"
-                        android:layout_width="1dp"
-                        android:background="#BDCAD2"/>
+                        android:layout_width="1dp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -357,10 +372,6 @@
                 </LinearLayout>
 
             </TableRow>
-
-            <View
-                android:layout_height="1dip"
-                android:background="#BDCAD2" />
 
             <!-- More TableRows -->
         </TableLayout>
@@ -375,16 +386,18 @@
 
 
     </LinearLayout>
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_height="0dp"
         android:layout_width="match_parent"
-        android:background="@drawable/madridpa1"
+        android:background="#FFF9C4"
         android:layout_weight="2">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
             <Spinner
                 android:id="@+id/spinnerEstacion2"
@@ -396,19 +409,21 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:orientation="horizontal">
             <Button
                 android:id="@+id/picDate2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:tag="showDate2"
+                android:background="#c7cc38"
                 android:text="Date"
                 android:onClick="datePicker"/>
             <TextView
                 android:layout_below="@+id/picDate2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp"
                 android:id="@+id/showDate2"
                 android:textSize="18dp"/>
             <Spinner
@@ -419,6 +434,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="#c7cc38"
                 android:text="@string/button_buscarDatos"
                 android:tag="measures2"
                 android:onClick="buscarDatos" />
@@ -428,6 +444,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:shrinkColumns="1"
+            android:layout_marginTop="11dp"
             android:id="@+id/table2">
 
             <TableRow
@@ -437,12 +454,14 @@
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/contaminante1"
+                        android:textSize="17dp"
                         android:gravity="center"/>
 
                 </LinearLayout>
@@ -450,17 +469,18 @@
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_height="match_parent"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal">
 
                     <View
                         android:layout_height="match_parent"
-                        android:layout_width="1dp"
-                        android:background="#BDCAD2"/>
+                        android:layout_width="1dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/contaminante2"
+                        android:textSize="17dp"
                         android:gravity="center"/>
 
                 </LinearLayout>
@@ -469,17 +489,18 @@
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_height="match_parent"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal">
 
                     <View
                         android:layout_height="match_parent"
-                        android:layout_width="1dp"
-                        android:background="#BDCAD2"/>
+                        android:layout_width="1dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/contaminante3"
+                        android:textSize="17dp"
                         android:gravity="center"/>
 
                 </LinearLayout>
@@ -488,17 +509,18 @@
                     android:orientation="horizontal"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:weightSum="1">
+                    android:weightSum="1"
+                    android:gravity="center_horizontal">
 
                     <View
                         android:layout_height="match_parent"
-                        android:layout_width="1dp"
-                        android:background="#BDCAD2"/>
+                        android:layout_width="1dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/contaminante4"
+                        android:textSize="17dp"
                         android:gravity="center" />
 
                 </LinearLayout>
@@ -507,17 +529,18 @@
                     android:orientation="horizontal"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:weightSum="1">
+                    android:weightSum="1"
+                    android:gravity="center_horizontal">
 
                     <View
                         android:layout_height="match_parent"
-                        android:layout_width="1dp"
-                        android:background="#BDCAD2"/>
+                        android:layout_width="1dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/contaminante5"
+                        android:textSize="17dp"
                         android:gravity="center" />
 
                 </LinearLayout>
@@ -526,17 +549,18 @@
                     android:orientation="horizontal"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:weightSum="1">
+                    android:weightSum="1"
+                    android:gravity="center_horizontal">
 
                     <View
                         android:layout_height="match_parent"
-                        android:layout_width="1dp"
-                        android:background="#BDCAD2"/>
+                        android:layout_width="1dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/contaminante6"
+                        android:textSize="17dp"
                         android:gravity="center" />
 
                 </LinearLayout>
@@ -545,17 +569,18 @@
                     android:orientation="horizontal"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:weightSum="1">
+                    android:weightSum="1"
+                    android:gravity="center_horizontal">
 
                     <View
                         android:layout_height="match_parent"
-                        android:layout_width="1dp"
-                        android:background="#BDCAD2"/>
+                        android:layout_width="1dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/contaminante7"
+                        android:textSize="17dp"
                         android:gravity="center" />
 
                 </LinearLayout>
@@ -564,17 +589,18 @@
                     android:orientation="horizontal"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:weightSum="1">
+                    android:weightSum="1"
+                    android:gravity="center_horizontal">
 
                     <View
                         android:layout_height="match_parent"
-                        android:layout_width="1dp"
-                        android:background="#BDCAD2"/>
+                        android:layout_width="1dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/contaminante8"
+                        android:textSize="17dp"
                         android:gravity="center" />
 
                 </LinearLayout>
@@ -583,12 +609,14 @@
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/measures2" >
+                android:id="@+id/measures2"
+                >
 
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:gravity="center_horizontal"
                     android:id="@+id/buscador2_cont1">
 
                     <TextView
@@ -602,12 +630,12 @@
                     android:orientation="horizontal"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:gravity="center_horizontal"
                     android:id="@+id/buscador2_cont2">
 
                     <View
                         android:layout_height="match_parent"
-                        android:layout_width="1dp"
-                        android:background="#BDCAD2"/>
+                        android:layout_width="1dp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -621,12 +649,12 @@
                     android:orientation="horizontal"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:gravity="center_horizontal"
                     android:id="@+id/buscador2_cont3">
 
                     <View
                         android:layout_height="match_parent"
-                        android:layout_width="1dp"
-                        android:background="#BDCAD2"/>
+                        android:layout_width="1dp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -639,12 +667,12 @@
                     android:orientation="horizontal"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:gravity="center_horizontal"
                     android:id="@+id/buscador2_cont4">
 
                     <View
                         android:layout_height="match_parent"
-                        android:layout_width="1dp"
-                        android:background="#BDCAD2"/>
+                        android:layout_width="1dp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -657,12 +685,12 @@
                     android:orientation="horizontal"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:gravity="center_horizontal"
                     android:id="@+id/buscador2_cont5">
 
                     <View
                         android:layout_height="match_parent"
-                        android:layout_width="1dp"
-                        android:background="#BDCAD2"/>
+                        android:layout_width="1dp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -675,12 +703,12 @@
                     android:orientation="horizontal"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:gravity="center_horizontal"
                     android:id="@+id/buscador2_cont6">
 
                     <View
                         android:layout_height="match_parent"
-                        android:layout_width="1dp"
-                        android:background="#BDCAD2"/>
+                        android:layout_width="1dp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -693,12 +721,12 @@
                     android:orientation="horizontal"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:gravity="center_horizontal"
                     android:id="@+id/buscador2_cont7">
 
                     <View
                         android:layout_height="match_parent"
-                        android:layout_width="1dp"
-                        android:background="#BDCAD2"/>
+                        android:layout_width="1dp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -711,12 +739,12 @@
                     android:orientation="horizontal"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:gravity="center_horizontal"
                     android:id="@+id/buscador2_cont8">
 
                     <View
                         android:layout_height="match_parent"
-                        android:layout_width="1dp"
-                        android:background="#BDCAD2"/>
+                        android:layout_width="1dp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -726,10 +754,6 @@
                 </LinearLayout>
 
             </TableRow>
-
-            <View
-                android:layout_height="1dip"
-                android:background="#BDCAD2" />
 
             <!-- More TableRows -->
         </TableLayout>

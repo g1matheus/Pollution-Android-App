@@ -1,6 +1,7 @@
 package com.contaminacion.madrid.contaminacionmadrid;
 
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,6 +25,11 @@ public class RankingActivity extends AppCompatActivity {
     final String[] meses = new String[] {"ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"};
     Integer[] celda_category = new Integer[] {R.id.category1, R.id.category2, R.id.category3, R.id.category4, R.id.category5, R.id.category6, R.id.category7, R.id.category8, R.id.category9, R.id.category10, R.id.category11, R.id.category12, R.id.category13, R.id.category14, R.id.category15, R.id.category16, R.id.category17, R.id.category18, R.id.category19, R.id.category20, R.id.category21, R.id.category22, R.id.category23};
     Integer[] estacion_ranking = new Integer[] {R.id.estacion1, R.id.estacion2, R.id.estacion3, R.id.estacion4, R.id.estacion5, R.id.estacion6, R.id.estacion7, R.id.estacion8, R.id.estacion9, R.id.estacion10, R.id.estacion11, R.id.estacion12, R.id.estacion13, R.id.estacion14, R.id.estacion15, R.id.estacion16, R.id.estacion17, R.id.estacion18, R.id.estacion19, R.id.estacion20, R.id.estacion21, R.id.estacion22, R.id.estacion23};
+    final String[] colores6 = new String[] {"#109F03", "#ABC244", "#E4DE45", "#FFC900", "#FFA200", "#FF1E00"};
+    final String[] colores10 = new String[] {"#109F03", "#469F03", "#ABC244", "#E4DE45", "#E4CE44", "#FFC900", "#FFB300", "#FFA200", "#FF7700", "#FF1E00"};
+    final String[] colores12 = new String[] {"#109F03", "#469F03", "#83CE19", "#ABC244", "#E4DE45", "#E4CE44", "#FFC900", "#FFB300", "#FFA200", "#FF7700", "#F74C17", "#FF1E00"};
+    final String[] colores14 = new String[] {"#109F03", "#469F03", "#6CA818", "#83CE19", "#ABC244", "#D6E444", "#E4DE45", "#E4CE44", "#FFC900", "#FFB300", "#FFA200", "#FF7700", "#F74C17", "#FF1E00"};
+    final String[] colores23 = new String[] {"#109F03", "#469F03", "#6CA818", "#83CE19", "#ABC244", "#D6E444", "#E4DE45", "#CDC72D", "#E4CE44", "#FFC900", "#FFB300", "#FFA200", "#FF7700", "#F74C17", "#FF1E00"};
     final String[] estaciones = new String[]{};
     Map<String, Float> estacion_sum_contaminante;
 
@@ -81,7 +87,7 @@ public class RankingActivity extends AppCompatActivity {
 
                 celda1.removeAllViews();
                 celda2.removeAllViews();
-                if(rank < estacion_sum_contaminante.size()){
+                if(rank < estacion_sum_contaminante.size() && rank < 15){
                     Object estacion = itr.next();
                     float valor = estacion_sum_contaminante.get(estacion);
                     Log.d("myTag", "Estacion: " + estacion);
@@ -90,11 +96,28 @@ public class RankingActivity extends AppCompatActivity {
                     tag_celdas[rank].setText("#"+(rank+1));
                     celda1.addView(tag_celdas[rank]);
                     tag_celdas[rank].setTypeface(Typeface.DEFAULT_BOLD);
-                    tag_celdas[rank].setTextSize(21);
+                    tag_celdas[rank].setTextSize(19);
 
                     datos_celdas[rank].setText((String)estacion);
                     celda2.addView(datos_celdas[rank]);
-                    datos_celdas[rank].setTextSize(21);
+                    datos_celdas[rank].setTextSize(19);
+
+                    //Pintamos los colores
+                    if(estacion_sum_contaminante.size()==6){
+                        tag_celdas[rank].setTextColor(Color.parseColor(colores6[rank]));
+                    }
+                    else if(estacion_sum_contaminante.size()==10){
+                        tag_celdas[rank].setTextColor(Color.parseColor(colores10[rank]));
+                    }
+                    else if(estacion_sum_contaminante.size()==12){
+                        tag_celdas[rank].setTextColor(Color.parseColor(colores12[rank]));
+                    }
+                    else if(estacion_sum_contaminante.size()==14){
+                        tag_celdas[rank].setTextColor(Color.parseColor(colores14[rank]));
+                    }
+                    else if(estacion_sum_contaminante.size()>15){
+                        tag_celdas[rank].setTextColor(Color.parseColor(colores23[rank]));
+                    }
                 }
             }
 

@@ -7,12 +7,12 @@ import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import android.content.res.Resources;
@@ -20,7 +20,7 @@ import android.graphics.Color;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
-import com.androidplot.xy.XYPlot;
+
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +45,7 @@ public class ContMadridActivity extends AppCompatActivity implements DatePickerD
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cont_madrid_old);
+        setContentView(R.layout.activity_cont_madrid);
 
     }
 
@@ -201,6 +201,18 @@ public class ContMadridActivity extends AppCompatActivity implements DatePickerD
 
             if(numMagnitudesAlmacenadas == 0){
                 ((TextView) findViewById(errorMessagesX)).setText("No se han encontrado resultados para esta búsqueda.");
+                //Pintamos por pantalla las medidas
+                for(int i=0;i<8;i++) {
+                    names_cont[i].setText(names[i]);
+                    LinearLayout celda_nombre = (LinearLayout) findViewById(celda_name[i]);
+                    LinearLayout celda = (LinearLayout) findViewById(celda_cont[i]);
+                    TextView celda_barra = (TextView) findViewById(celda_porc_barra[i]);
+                    TextView celda_numero = (TextView) findViewById(celda_porc_num[i]);
+                    celda.removeAllViews();
+                    celda_barra.setBackgroundColor(Color.TRANSPARENT);
+                    celda_numero.setText("");
+                }
+
             }
             else{
 
@@ -213,6 +225,7 @@ public class ContMadridActivity extends AppCompatActivity implements DatePickerD
                     TextView celda_numero = (TextView)findViewById(celda_porc_num[i]);
                     celda_nombre.removeAllViews();
                     celda.removeAllViews();
+                    celda.setBackgroundColor(Color.TRANSPARENT);
                     celda_barra.setBackgroundColor(Color.TRANSPARENT);
                     celda_numero.setText("");
                     if((datos_cont[i]!=null) && (datos_cont[i].getText()!="")){
@@ -232,11 +245,19 @@ public class ContMadridActivity extends AppCompatActivity implements DatePickerD
                         float width = 7*porcentaje_value;
                         params.width= (int)width;
                         celda_barra.setLayoutParams(params);
+                        celda_numero.setTextSize(17);
                         celda_numero.setText(String.format("%.2f", porcentaje_value)+"%");
-
+                        datos_cont[i].setTextSize(17);
                         celda.addView(datos_cont[i]);
                     }
-                    names_cont[i].setTextSize(19);
+                    else if((datos_cont[i]==null) || (datos_cont[i].getText()=="")){
+                        celda.setBackgroundColor(Color.parseColor("#E0E0E0"));
+                        datos_cont[i].setText("-");
+                        datos_cont[i].setTextSize(20);
+                        celda.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
+                        celda.addView(datos_cont[i]);
+                    }
+                    names_cont[i].setTextSize(18);
                     celda_nombre.addView(names_cont[i]);
                 }
 

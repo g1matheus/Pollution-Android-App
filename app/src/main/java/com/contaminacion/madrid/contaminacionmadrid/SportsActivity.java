@@ -148,62 +148,77 @@ public class SportsActivity extends AppCompatActivity {
             //Selección de parque
             if(porcentaje_Retiro>=porcentaje_Casa_Campo && porcentaje_Retiro>porcentaje_Juan_Carlos_I){
                 parque.setText("Parque del Retiro");
-                celda_parque.addView(parque);
                 parque_select = "Parque del Retiro";
+                parque.setTextSize(17);
+                celda_parque.addView(parque);
             }
             else if(porcentaje_Casa_Campo>=porcentaje_Juan_Carlos_I && porcentaje_Casa_Campo>porcentaje_Retiro){
                 parque.setText("Casa de Campo");
-                celda_parque.addView(parque);
                 parque_select = "Casa de Campo";
+                parque.setTextSize(17);
+                celda_parque.addView(parque);
             }
             else if(porcentaje_Juan_Carlos_I>=porcentaje_Retiro && porcentaje_Juan_Carlos_I>porcentaje_Casa_Campo){
                 parque.setText("Parque Juan Carlos I");
-                celda_parque.addView(parque);
                 parque_select = "Parque Juan Carlos I";
+                parque.setTextSize(17);
+                celda_parque.addView(parque);
             }
 
             //Pintamos el porcentaje
             if(parque_select.equals("Parque del Retiro")){
                 porcentaje.setText("Nivel de contaminación: " + String.format("%.1f", porcentaje_Retiro)+" %");
-                celda_porcentaje.addView(porcentaje);
                 porcentaje_select = porcentaje_Retiro;
+                porcentaje.setTextSize(17);
+                celda_porcentaje.addView(porcentaje);
             }
             else if(parque_select.equals("Casa de Campo")){
                 porcentaje.setText("Nivel de contaminación: " + String.format("%.1f", porcentaje_Casa_Campo)+" %");
-                celda_porcentaje.addView(porcentaje);
                 porcentaje_select = porcentaje_Casa_Campo;
+                porcentaje.setTextSize(17);
+                celda_porcentaje.addView(porcentaje);
             }
             else if(parque_select.equals("Parque Juan Carlos I")){
                 porcentaje.setText("Nivel de contaminación: " + String.format("%.1f", porcentaje_Juan_Carlos_I)+" %");
-                celda_porcentaje.addView(porcentaje);
                 porcentaje_select = porcentaje_Juan_Carlos_I;
+                porcentaje.setTextSize(17);
+                celda_porcentaje.addView(porcentaje);
             }
 
             //Pintamos la bandera y el mensaje
             if(porcentaje_select<50){
                 bandera.setBackgroundColor(Color.parseColor("#7ec051"));
                 celda_flag.addView(bandera);
-                mensaje.setText("Contaminación baja. Buen día para salir a correr!!");
+                mensaje.setText("Contaminación baja. Buen día para salir a hacer deporte!!");
+                mensaje.setTextSize(17);
                 celda_mensaje.addView(mensaje);
             }
             else if(porcentaje_select>=50 && porcentaje_select<100){
                 bandera.setBackgroundColor(Color.parseColor("#fcc963"));
                 celda_flag.addView(bandera);
                 mensaje.setText("Contaminación moderada. Hacer deporte con precaución.");
+                mensaje.setTextSize(17);
                 celda_mensaje.addView(mensaje);
             }
             else if(porcentaje_select >= 100){
                 bandera.setBackgroundColor(Color.parseColor("#fb3c2e"));
                 celda_flag.addView(bandera);
                 mensaje.setText("Contaminación alta. Mejor ir al gimnasio.");
+                mensaje.setTextSize(17);
                 celda_mensaje.addView(mensaje);
             }
 
             // Para poner la imagen final
-
-
-
-
+            TextView imagen = (TextView)findViewById(R.id.img_park);
+            if(parque_select.equals("Parque del Retiro")){
+                imagen.setBackgroundResource(R.drawable.retiro);
+            }
+            else if(parque_select.equals("Casa de Campo")){
+                imagen.setBackgroundResource(R.drawable.casacampo);
+            }
+            else if(parque_select.equals("Parque Juan Carlos I")){
+                imagen.setBackgroundResource(R.drawable.juancarlosi);
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

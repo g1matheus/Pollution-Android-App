@@ -28,7 +28,7 @@ import java.util.Locale;
 import api.main.ReadFiles;
 
 public class ComparadorActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
-    private Spinner spinner1, spHoras;
+    private Spinner spHoras;
     private String dia;
     private String mes;
     private String ano;
@@ -190,12 +190,11 @@ public class ComparadorActivity extends AppCompatActivity implements DatePickerD
                     LinearLayout celda = (LinearLayout)findViewById(celda_cont[i]);
                     Log.d("myTag", "Pasa el bucle"+datos_cont[i].getText());
                     celda.removeAllViews();
-                    celda.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                    celda.setBackgroundColor(Color.parseColor("#E0E0E0"));
+
                     if((datos_cont[i]!=null) && (datos_cont[i].getText()!="")){
-                        Log.d("myTag", "entroooo1");
                         float value = Float.parseFloat(datos_cont[i].getText().toString());
                         if (value < limites[i]/2){
-                            Log.d("myTag", "entroooo1");
                             celda.setBackgroundColor(Color.parseColor("#7ec051"));
                         }
                         else if (value < limites[i] && value >= limites[i]/2){
@@ -204,7 +203,12 @@ public class ComparadorActivity extends AppCompatActivity implements DatePickerD
                         else if (value >= limites[i]){
                             celda.setBackgroundColor(Color.parseColor("#fb3c2e"));
                         }
-
+                        datos_cont[i].setTextSize(17);
+                        celda.addView(datos_cont[i]);
+                    }
+                    else{
+                        datos_cont[i].setText("-");
+                        datos_cont[i].setTextSize(17);
                         celda.addView(datos_cont[i]);
                     }
                 }
@@ -257,6 +261,8 @@ public class ComparadorActivity extends AppCompatActivity implements DatePickerD
         dia = dia_seleccionado.getText().toString().split(" ")[0];
         mes = dia_seleccionado.getText().toString().split(" ")[1].replace(".","");
         ano = dia_seleccionado.getText().toString().split(" ")[2];
+        Log.d("myTag", "Día seleccionado: "+dia);
+
 
         //Rellenamos el combos de horas en función de la fecha seleccionada
         final String[] horasDia = new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "00"};
@@ -320,11 +326,9 @@ public class ComparadorActivity extends AppCompatActivity implements DatePickerD
                             getActivity(), year, month, day);
 
             cmin.set(2001,0,1);
-            Log.d("myTag", "La fecha mínima essssss: "+cmin.getTime());
             dpd.getDatePicker().setMinDate(cmin.getTimeInMillis());
 
             c.getTime();
-            Log.d("myTag", "La fecha máxima es: "+c.getTime());
             dpd.getDatePicker().setMaxDate(c.getTimeInMillis());
 
 
