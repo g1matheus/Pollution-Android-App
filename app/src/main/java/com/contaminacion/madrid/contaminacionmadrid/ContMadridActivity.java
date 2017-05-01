@@ -210,6 +210,7 @@ public class ContMadridActivity extends AppCompatActivity implements DatePickerD
                     TextView celda_numero = (TextView) findViewById(celda_porc_num[i]);
                     celda.removeAllViews();
                     celda_barra.setBackgroundColor(Color.TRANSPARENT);
+                    celda.setBackgroundColor(Color.TRANSPARENT);
                     celda_numero.setText("");
                 }
 
@@ -225,6 +226,7 @@ public class ContMadridActivity extends AppCompatActivity implements DatePickerD
                     TextView celda_numero = (TextView)findViewById(celda_porc_num[i]);
                     celda_nombre.removeAllViews();
                     celda.removeAllViews();
+
                     celda.setBackgroundColor(Color.TRANSPARENT);
                     celda_barra.setBackgroundColor(Color.TRANSPARENT);
                     celda_numero.setText("");

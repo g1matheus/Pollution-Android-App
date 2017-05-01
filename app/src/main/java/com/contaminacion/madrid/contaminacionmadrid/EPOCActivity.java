@@ -2,9 +2,11 @@ package com.contaminacion.madrid.contaminacionmadrid;
 
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -125,12 +127,14 @@ public class EPOCActivity extends AppCompatActivity {
                 celda_flag.removeAllViews();
                 celda_percent.removeAllViews();
 
+                Log.d("myTag", "datos_cont[cont]: "+ datos_cont[cont]);
                 if(datos_cont[cont]!=0){
 
                     float value = datos_cont[cont];
 
                     float percent = (value/limites[cont])*100;
                     percent_celdas[cont].setText(String.format("%.1f", percent)+" %");
+                    percent_celdas[cont].setTextSize(17);
                     celda_percent.addView(percent_celdas[cont]);
 
                     if (value < limites[cont]/2){
@@ -162,10 +166,11 @@ public class EPOCActivity extends AppCompatActivity {
                     celda_flag.setBackgroundColor(Color.parseColor("#D9D9D9"));
                     celda_flag.addView(flag_celdas[cont]);
                     percent_celdas[cont].setText("-");
+                    percent_celdas[cont].setTextSize(17);
                     celda_percent.addView(percent_celdas[cont]);
                 }
 
-                // Para poner la imagen final
+                // Para poner el texto final
                 if(num_flags_red == 0 && num_flags_orange < 2){
                     resultado.setText("Contaminación baja. Buen día para salir a la calle!!");
                 }
@@ -175,6 +180,7 @@ public class EPOCActivity extends AppCompatActivity {
                 else if(num_flags_red >= 1){
                     resultado.setText("Contaminación alta. Buen día para ver una peli en casa!!");
                 }
+                resultado.setTextSize(17);
                 celda_resultado.removeAllViews();
                 celda_resultado.addView(resultado);
             }

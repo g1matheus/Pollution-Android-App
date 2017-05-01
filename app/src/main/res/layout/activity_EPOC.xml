@@ -9,14 +9,52 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="11dp"
+        android:layout_marginRight="11dp"
+        android:layout_marginTop="11dp"
         android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:padding="6dp"
+            android:background="#fffae5"
+            android:text="Seleccione su grado de EPOC y compruebe la contaminación que existe hoy en su zona."
+            android:id="@+id/textView8" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:text="Grado de EPOC:" />
+
         <Spinner
             android:id="@+id/spinnerGradoEPOC"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:entries="@array/grados_epoc_array"
             android:prompt="@string/grados_epoc_prompt" />
-
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:text="Zona:" />
         <Spinner
             android:id="@+id/spinnerEstacion"
             android:layout_width="wrap_content"
@@ -28,20 +66,30 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:layout_gravity="center_vertical|center_horizontal"
         android:orientation="horizontal">
         <Button
             android:id="@+id/picDate1"
+            android:padding="9dp"
+            android:layout_marginTop="-3dp"
+            android:layout_marginBottom="-3dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Actualizar"
             android:tag="showDate1"
+            android:background="#00695C"
+            android:textStyle="bold"
+            android:textColor="@color/off_white"
             android:onClick="getEPOC"/>
     </LinearLayout>
 
     <TableLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:shrinkColumns="1"
+        android:layout_margin="11dp"
+        android:layout_gravity="center_vertical|center_horizontal"
         android:id="@+id/table2">
 
         <TableRow
@@ -51,9 +99,9 @@
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_height="match_parent"
-                android:layout_weight="0.15"
-                android:gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_width="30sp"
+                android:gravity="center_vertical|center_horizontal"
                 android:id="@+id/flag_cont1"
                 android:background="#D9D9D9">
 
@@ -66,42 +114,43 @@
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_height="match_parent"
-                android:layout_weight="0.15"
-                android:gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_width="80sp"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:id="@+id/percent_cont1">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="17dp"
                     android:text="-"/>
 
             </LinearLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
                 android:id="@+id/cont1">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
+                    android:textSize="17dp"
                     android:text="Dióxido de Azufre"/>
 
             </LinearLayout>
         </TableRow>
 
         <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginTop="7sp">
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.15"
+                android:layout_width="30sp"
                 android:gravity="center_horizontal"
                 android:id="@+id/flag_cont2"
                 android:background="#D9D9D9">
@@ -114,28 +163,29 @@
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_height="match_parent"
-                android:layout_weight="0.15"
-                android:gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_width="80sp"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:id="@+id/percent_cont2">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="17dp"
                     android:text="-"/>
 
             </LinearLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
                 android:id="@+id/cont2">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
+                    android:textSize="17dp"
                     android:text="Dióxido de Nitrógeno"/>
 
             </LinearLayout>
@@ -149,7 +199,7 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.15"
+                android:layout_width="30sp"
                 android:gravity="center_horizontal"
                 android:id="@+id/flag_cont3"
                 android:background="#D9D9D9">
@@ -162,28 +212,30 @@
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_height="match_parent"
-                android:layout_weight="0.15"
-                android:gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_width="80sp"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:id="@+id/percent_cont3">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="17dp"
                     android:text="-"/>
 
             </LinearLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
                 android:id="@+id/cont3">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:textSize="17dp"
                     android:text="Ozono"/>
 
             </LinearLayout>
@@ -197,7 +249,7 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.15"
+                android:layout_width="30sp"
                 android:gravity="center_horizontal"
                 android:id="@+id/flag_cont4"
                 android:background="#D9D9D9">>
@@ -210,28 +262,29 @@
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_height="match_parent"
-                android:layout_weight="0.15"
-                android:gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_width="80sp"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:id="@+id/percent_cont4">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="17dp"
                     android:text="-"/>
 
             </LinearLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
                 android:id="@+id/cont4">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
+                    android:textSize="17dp"
                     android:text="Partículas 2.5 µm"/>
 
             </LinearLayout>
@@ -245,7 +298,7 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.15"
+                android:layout_width="30sp"
                 android:gravity="center_horizontal"
                 android:id="@+id/flag_cont5"
                 android:background="#D9D9D9">>
@@ -258,28 +311,29 @@
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_height="match_parent"
-                android:layout_weight="0.15"
-                android:gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_width="80sp"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:id="@+id/percent_cont5">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="17dp"
                     android:text="-"/>
 
             </LinearLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
                 android:id="@+id/cont5">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
+                    android:textSize="17dp"
                     android:text="Partículas 10 µm"/>
 
             </LinearLayout>
@@ -292,25 +346,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:id="@+id/text_resultado"
+        android:layout_margin="11dp"
+        android:layout_gravity="center_vertical|center_horizontal"
         android:layout_marginTop="35sp"
         android:textSize="30sp"
         android:textStyle="bold">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:background="@drawable/permitido"
-        android:layout_height="0dp"
-        android:layout_width="match_parent"
-        android:layout_weight="2"
-        android:layout_marginLeft="95sp"
-        android:layout_marginRight="95sp"
-        android:layout_marginTop="25sp"
-        android:layout_marginBottom="95sp">
-
     </LinearLayout>
 
 

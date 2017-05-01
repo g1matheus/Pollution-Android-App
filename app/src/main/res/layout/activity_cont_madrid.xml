@@ -73,6 +73,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
         android:layout_gravity="center_vertical|center_horizontal">
         <TextView
             android:layout_below="@+id/table1"
@@ -106,8 +107,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="19sp"
-                    android:text="SO2"
                     android:id="@+id/textView" />
 
             </LinearLayout>
@@ -167,8 +166,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="19sp"
-                    android:text="CO"
                     android:id="@+id/textView6" />
 
             </LinearLayout>
@@ -226,9 +223,7 @@
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="19sp"
-                    android:text="NO2" />
+                    android:layout_height="wrap_content" />
 
             </LinearLayout>
 
@@ -285,9 +280,7 @@
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="19sp"
-                    android:text="O3" />
+                    android:layout_height="wrap_content" />
 
             </LinearLayout>
 
@@ -345,8 +338,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="19sp"
-                    android:text="TOL"
                     android:id="@+id/textView5" />
 
             </LinearLayout>
@@ -406,8 +397,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="19sp"
-                    android:text="BEN"
                     android:id="@+id/textView4" />
 
             </LinearLayout>
@@ -467,8 +456,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="19sp"
-                    android:text="PM 2,5"
                     android:id="@+id/textView3"
                     android:layout_weight="0.44" />
 
@@ -527,9 +514,7 @@
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="19sp"
-                    android:text="PM 10" />
+                    android:layout_height="wrap_content" />
 
             </LinearLayout>
 

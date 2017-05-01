@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="17sp"
-            android:padding="5dp"
+            android:padding="6dp"
             android:background="#fffae5"
             android:text="Seleccione un contaminante y compruebe cuál es el ranking de estaciones actual en Madrid"
             android:id="@+id/textView8" />
@@ -50,6 +50,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#00695C"
+            android:padding="9dp"
+            android:layout_marginTop="-3dp"
+            android:layout_marginBottom="-3dp"
             android:textSize="15sp"
             android:text="Buscar"
             android:textStyle="bold"
