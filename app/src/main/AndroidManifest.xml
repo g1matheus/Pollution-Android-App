@@ -20,7 +20,7 @@
             android:name=".ContMadridActivity"
             android:label="@string/activity_contMadrid" />
         <activity
-            android:name=".AvisosContaminacion"
+            android:name=".AvisosContaminacionActivity"
             android:label="@string/activity_avisos_contaminacion" />/>
         <activity
             android:name=".ComparadorActivity"

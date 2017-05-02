@@ -8,26 +8,38 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="11dp"
+        android:layout_marginRight="11dp"
+        android:layout_marginTop="11dp"
         android:orientation="horizontal">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="19sp"
-            android:textStyle="bold"
-            android:text="Nivel de alerta: " />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="19sp" />
+            android:textSize="17sp"
+            android:padding="6dp"
+            android:background="#fffae5"
+            android:text="Conozca el nivel de alerta por contaminación en Madrid"
+            android:id="@+id/textView8" />
     </LinearLayout>
+
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center_vertical|center_horizontal"
         android:orientation="horizontal">
         <Button
             android:id="@+id/alertNO2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="9dp"
+            android:layout_marginTop="-3dp"
+            android:layout_marginBottom="-3dp"
+            android:background="#00695C"
+            android:textStyle="bold"
+            android:textColor="@color/off_white"
             android:text="Actualizar"
             android:onClick="getContaminacionNO2"/>
     </LinearLayout>
@@ -40,6 +52,8 @@
             android:layout_height="wrap_content"
             android:stretchColumns="*"
             android:shrinkColumns="*"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="15dp"
             android:id="@+id/zonas">
             <TextView
                 android:layout_width="wrap_content"
@@ -58,8 +72,9 @@
                         android:layout_height="match_parent"
                         android:layout_marginRight="7sp"
                         android:id="@+id/flag_estacion1"
-                        android:background="@drawable/border"
-                        >
+                        android:layout_marginTop="1.5dp"
+                        android:layout_marginBottom="1.5dp"
+                        android:background="#D9D9D9">
 
                     </LinearLayout>
 
@@ -85,7 +100,9 @@
                         android:layout_height="match_parent"
                         android:layout_marginRight="7sp"
                         android:id="@+id/flag_estacion2"
-                        android:background="#00C300">
+                        android:layout_marginTop="1.5dp"
+                        android:layout_marginBottom="1.5dp"
+                        android:background="#D9D9D9">
 
                     </LinearLayout>
 
@@ -111,6 +128,9 @@
                         android:orientation="horizontal"
                         android:layout_height="match_parent"
                         android:layout_marginRight="7sp"
+                        android:layout_marginTop="1.5dp"
+                        android:layout_marginBottom="1.5dp"
+                        android:background="#D9D9D9"
                         android:id="@+id/flag_estacion3">
 
                     </LinearLayout>
@@ -137,7 +157,9 @@
                         android:layout_height="match_parent"
                         android:layout_marginRight="7sp"
                         android:id="@+id/flag_estacion4"
-                        android:background="#00C300">
+                        android:layout_marginTop="1.5dp"
+                        android:layout_marginBottom="1.5dp"
+                        android:background="#D9D9D9">
                     </LinearLayout>
                     <LinearLayout
                         android:orientation="horizontal"
@@ -162,7 +184,9 @@
                         android:layout_height="match_parent"
                         android:layout_marginRight="7sp"
                         android:id="@+id/flag_estacion5"
-                        android:background="#00C300">
+                        android:layout_marginTop="1.5dp"
+                        android:layout_marginBottom="1.5dp"
+                        android:background="#D9D9D9">
                     </LinearLayout>
                     <LinearLayout
                         android:orientation="horizontal"
@@ -187,7 +211,9 @@
                         android:layout_height="match_parent"
                         android:layout_marginRight="7sp"
                         android:id="@+id/flag_estacion6"
-                        android:background="#00C300">
+                        android:layout_marginTop="1.5dp"
+                        android:layout_marginBottom="1.5dp"
+                        android:background="#D9D9D9">
 
                     </LinearLayout>
                     <LinearLayout
@@ -213,7 +239,9 @@
                         android:layout_height="match_parent"
                         android:layout_marginRight="7sp"
                         android:id="@+id/flag_estacion7"
-                        android:background="#00C300">
+                        android:layout_marginTop="1.5dp"
+                        android:layout_marginBottom="1.5dp"
+                        android:background="#D9D9D9">
 
                     </LinearLayout>
                     <LinearLayout
@@ -239,7 +267,9 @@
                         android:layout_height="match_parent"
                         android:layout_marginRight="7sp"
                         android:id="@+id/flag_estacion8"
-                        android:background="#00C300">
+                        android:layout_marginTop="1.5dp"
+                        android:layout_marginBottom="1.5dp"
+                        android:background="#D9D9D9">
 
                     </LinearLayout>
                     <LinearLayout
@@ -265,7 +295,9 @@
                         android:layout_height="match_parent"
                         android:layout_marginRight="7sp"
                         android:id="@+id/flag_estacion9"
-                        android:background="#00C300">
+                        android:layout_marginTop="1.5dp"
+                        android:layout_marginBottom="1.5dp"
+                        android:background="#D9D9D9">
 
                     </LinearLayout>
                     <LinearLayout
@@ -290,7 +322,9 @@
                         android:layout_height="match_parent"
                         android:layout_marginRight="7sp"
                         android:id="@+id/flag_estacion10"
-                        android:background="#00C300">
+                        android:layout_marginTop="1.5dp"
+                        android:layout_marginBottom="1.5dp"
+                        android:background="#D9D9D9">
 
                     </LinearLayout>
                     <LinearLayout
@@ -324,7 +358,9 @@
                         android:layout_height="match_parent"
                         android:layout_marginRight="7sp"
                         android:id="@+id/flag_estacion11"
-                        android:background="#00C300">
+                        android:layout_marginTop="1.5dp"
+                        android:layout_marginBottom="1.5dp"
+                        android:background="#D9D9D9">
 
                     </LinearLayout>
                     <LinearLayout
@@ -350,7 +386,9 @@
                         android:layout_height="match_parent"
                         android:layout_marginRight="7sp"
                         android:id="@+id/flag_estacion12"
-                        android:background="#00C300">
+                        android:layout_marginTop="1.5dp"
+                        android:layout_marginBottom="1.5dp"
+                        android:background="#D9D9D9">
 
                     </LinearLayout>
                     <LinearLayout
@@ -375,7 +413,9 @@
                         android:layout_height="match_parent"
                         android:layout_marginRight="7sp"
                         android:id="@+id/flag_estacion13"
-                        android:background="#00C300">
+                        android:layout_marginTop="1.5dp"
+                        android:layout_marginBottom="1.5dp"
+                        android:background="#D9D9D9">
 
                     </LinearLayout>
                     <LinearLayout
@@ -409,7 +449,9 @@
                         android:layout_height="match_parent"
                         android:layout_marginRight="7sp"
                         android:id="@+id/flag_estacion14"
-                        android:background="#00C300">
+                        android:layout_marginTop="1.5dp"
+                        android:layout_marginBottom="1.5dp"
+                        android:background="#D9D9D9">
                     </LinearLayout>
                     <LinearLayout
                         android:orientation="horizontal"
@@ -433,7 +475,9 @@
                         android:layout_height="match_parent"
                         android:layout_marginRight="7sp"
                         android:id="@+id/flag_estacion15"
-                        android:background="#00C300">
+                        android:layout_marginTop="1.5dp"
+                        android:layout_marginBottom="1.5dp"
+                        android:background="#D9D9D9">
                     </LinearLayout>
                     <LinearLayout
                         android:orientation="horizontal"
@@ -457,7 +501,9 @@
                         android:layout_height="match_parent"
                         android:layout_marginRight="7sp"
                         android:id="@+id/flag_estacion16"
-                        android:background="#00C300">
+                        android:layout_marginTop="1.5dp"
+                        android:layout_marginBottom="1.5dp"
+                        android:background="#D9D9D9">
                     </LinearLayout>
                     <LinearLayout
                         android:orientation="horizontal"
@@ -481,7 +527,9 @@
                         android:layout_height="match_parent"
                         android:layout_marginRight="7sp"
                         android:id="@+id/flag_estacion17"
-                        android:background="#00C300">
+                        android:layout_marginTop="1.5dp"
+                        android:layout_marginBottom="1.5dp"
+                        android:background="#D9D9D9">
                     </LinearLayout>
                     <LinearLayout
                         android:orientation="horizontal"
@@ -505,7 +553,9 @@
                         android:layout_height="match_parent"
                         android:layout_marginRight="7sp"
                         android:id="@+id/flag_estacion18"
-                        android:background="#00C300">
+                        android:layout_marginTop="1.5dp"
+                        android:layout_marginBottom="1.5dp"
+                        android:background="#D9D9D9">
                     </LinearLayout>
                     <LinearLayout
                         android:orientation="horizontal"
@@ -529,7 +579,9 @@
                         android:layout_height="match_parent"
                         android:layout_marginRight="7sp"
                         android:id="@+id/flag_estacion19"
-                        android:background="#00C300">
+                        android:layout_marginTop="1.5dp"
+                        android:layout_marginBottom="1.5dp"
+                        android:background="#D9D9D9">
                     </LinearLayout>
                     <LinearLayout
                         android:orientation="horizontal"
@@ -561,7 +613,9 @@
                         android:layout_height="match_parent"
                         android:layout_marginRight="7sp"
                         android:id="@+id/flag_estacion20"
-                        android:background="#00C300">
+                        android:layout_marginTop="1.5dp"
+                        android:layout_marginBottom="1.5dp"
+                        android:background="#D9D9D9">
                     </LinearLayout>
                     <LinearLayout
                         android:orientation="horizontal"
@@ -585,7 +639,9 @@
                         android:layout_height="match_parent"
                         android:layout_marginRight="7sp"
                         android:id="@+id/flag_estacion21"
-                        android:background="#00C300">
+                        android:layout_marginTop="1.5dp"
+                        android:layout_marginBottom="1.5dp"
+                        android:background="#D9D9D9">
                     </LinearLayout>
                     <LinearLayout
                         android:orientation="horizontal"
@@ -617,7 +673,9 @@
                         android:layout_height="match_parent"
                         android:layout_marginRight="7sp"
                         android:id="@+id/flag_estacion22"
-                        android:background="#00C300">
+                        android:layout_marginTop="1.5dp"
+                        android:layout_marginBottom="1.5dp"
+                        android:background="#D9D9D9">
                     </LinearLayout>
                     <LinearLayout
                         android:orientation="horizontal"
@@ -641,7 +699,9 @@
                         android:layout_height="match_parent"
                         android:layout_marginRight="7sp"
                         android:id="@+id/flag_estacion23"
-                        android:background="#00C300">
+                        android:layout_marginTop="1.5dp"
+                        android:layout_marginBottom="1.5dp"
+                        android:background="#D9D9D9">
                     </LinearLayout>
                     <LinearLayout
                         android:orientation="horizontal"
@@ -665,7 +725,9 @@
                         android:layout_height="match_parent"
                         android:layout_marginRight="7sp"
                         android:id="@+id/flag_estacion24"
-                        android:background="#00C300">
+                        android:layout_marginTop="1.5dp"
+                        android:layout_marginBottom="1.5dp"
+                        android:background="#D9D9D9">
                     </LinearLayout>
                     <LinearLayout
                         android:orientation="horizontal"
@@ -678,6 +740,19 @@
                             android:textSize="19sp"
                             android:id="@+id/estacion24"
                             android:text="Villaverde Alto"/>
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30sp">
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="7sp"
+                        android:layout_marginTop="1.5dp"
+                        android:layout_marginBottom="1.5dp">
                     </LinearLayout>
                 </TableRow>
         </TableLayout>

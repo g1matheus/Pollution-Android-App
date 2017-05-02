@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     /** Called when the user clicks the Datos historicos button */
     public void goAvisosContaminacion(View view) {
-        Intent intent = new Intent(this, AvisosContaminacion.class);
+        Intent intent = new Intent(this, AvisosContaminacionActivity.class);
         startActivity(intent);
     }
 
